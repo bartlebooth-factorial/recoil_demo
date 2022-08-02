@@ -17,10 +17,12 @@ const colorState = atom({
 function ColorMenu() {
 	const [color, setColor] = useRecoilState(colorState);
 
-	const choices = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'voilet'];
+	const choices = ['red', 'green', 'blue', 'purple'];
 	const colorList = choices.map((c) => {
 		return (
-			<button key={c} value = {c} onClick={e => handleClick(e.target.value)}>
+			<button key={c} value = {c} style={{color: c}}
+			onClick={e => handleClick(e.target.value)}
+			>
 			{c}
 			</button>
 		);
@@ -38,7 +40,7 @@ function ColorMenu() {
 function ColorMessage() {
 	const color = useRecoilValue(colorState);
 	return (
-		<p>
+		<p style={{color: color}}>
 		Current color choice: <b>{color}</b>
 		</p>
 	);
@@ -47,7 +49,7 @@ function ColorMessage() {
 function Demo() {
 	return (
 		<RecoilRoot>
-			<p>Choose a color</p>
+			<h1>Choose a color:</h1>
 			<ColorMenu />
 			<ColorMessage />
 		</RecoilRoot>
