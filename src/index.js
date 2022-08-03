@@ -40,8 +40,8 @@ function ColorMenu() {
 function ColorMessage() {
 	const color = useRecoilValue(colorState);
 	return (
-		<p style={{color: color}}>
-		Current color choice: <b>{color}</b>
+		<p>
+		Current color choice: <b style={{color: color}}>{color}</b>
 		</p>
 	);
 }
